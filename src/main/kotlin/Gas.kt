@@ -1,4 +1,7 @@
 package org.practicatrim2
 
-class Gas {
+data class Gas(
+    val nombre:String,
+    val peligrosidad:Int
+) {
 }
