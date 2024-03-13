@@ -1,9 +1,7 @@
 package org.practicatrim2
-import com.github.ajalt.mordant.rendering.TextColors.*
-import com.github.ajalt.mordant.rendering.TextStyles.*
-import com.github.ajalt.mordant.terminal.Terminal
-
-import kotlin.math.min
+import com.github.ajalt.mordant.rendering.TextColors
+import com.github.ajalt.mordant.terminal.*
+import com.github.ajalt.mordant.terminal.YesNoPrompt
 
 object GestionarJuego {
     val t = Terminal()
@@ -17,6 +15,21 @@ object GestionarJuego {
         println("Si te quedas en bancarota pierdes")
         println("Con esta explicacion es suficiente, lo demás lo verás sobre la marcha, mucha suerte y cuidado con los gases!")
     }
+
+    fun generarMineralAleatorios():Mineral{
+        val nombre = MineralesPosibles.entries.random().nombre
+        val valorMineral = MineralesPosibles.entries.random().valor
+        val calidadMineral = Calidad.entries.toTypedArray().random()
+        return Mineral(nombre, valorMineral, calidadMineral)
+    }
+    fun contratarTransportista(){
+        t.println(TextColors.brightRed("No hay transportistas disponibles"))
+        val respuesta = YesNoPrompt("Quieres contratar a otro transportista?", t)
+        respuesta.ask()
+        TODO("HACER ESTO, HACER BUSCARTRANSPORTITADISPONIBLE Y GESTIONARPEDIDO")
+
+    }
+
     fun iniciarDia(mina:Mina){
         mina.avanzarDia()
         println("""

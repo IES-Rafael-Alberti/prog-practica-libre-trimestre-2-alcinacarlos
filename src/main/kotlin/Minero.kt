@@ -1,5 +1,7 @@
 package org.practicatrim2
 
+import kotlin.random.Random
+
 class Minero(
     nombre: String,
     edad: Int,
@@ -8,11 +10,15 @@ class Minero(
     override val cargo: Cargo,
     override var dadoDeBaja: Boolean
 ): Persona(nombre, edad, dni), Trabajador {
-    override fun trabajar() {
-        TODO("Not yet implemented")
+    override fun trabajar(mina: Mina) {
+        val numeroMineralesAObtener = Random.nextInt(1,5)
+        repeat(numeroMineralesAObtener){
+            val mineral = GestionarJuego.generarMineralAleatorios()
+            mina.inventario.add(mineral)
+        }
     }
 
-    override fun cobrar() {
-        TODO("Not yet implemented")
+    override fun cobrar(mina: Mina) {
+        mina.dinero -= salario
     }
 }
