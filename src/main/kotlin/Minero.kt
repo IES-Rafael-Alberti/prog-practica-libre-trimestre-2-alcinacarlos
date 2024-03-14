@@ -11,7 +11,7 @@ class Minero(
     override var dadoDeBaja: Boolean
 ): Persona(nombre, edad, dni), Trabajador {
     override fun trabajar(mina: Mina) {
-        val numeroMineralesAObtener = Random.nextInt(1,5)
+        val numeroMineralesAObtener = Random.nextInt(GestionarJuego.MINERALES_MINIMOS_POR_MINERO,GestionarJuego.MINERALES_MAXIMOS_POR_MINERO)
         repeat(numeroMineralesAObtener){
             val mineral = GestionarJuego.generarMineralAleatorios()
             mina.inventario.add(mineral)

@@ -1,9 +1,6 @@
 package org.practicatrim2
 
-import com.github.ajalt.mordant.rendering.TextColors.*
-import com.github.ajalt.mordant.rendering.TextStyles.*
-import com.github.ajalt.mordant.terminal.Terminal
-import com.github.ajalt.mordant.terminal.YesNoPrompt
+import java.util.function.BiPredicate
 
 class Mina(
     val nombre:String,
@@ -16,39 +13,76 @@ class Mina(
     var dia: Int = 0
     var colaPedidos:MutableList<Pedido> = mutableListOf()
     val pedidosRealizados:MutableList<Pedido> = mutableListOf()
-    var pedidosPendientesEntrega:MutableList<Pedido> = mutableListOf()
+    var pedidosPendientesEntrega:MutableSet<Pedido> = mutableSetOf()
 
     fun avanzarDia(){
         dia++
+        minar()
     }
-    fun trabajar(){
-        listaTrabajadores.forEach { it.trabajar(this) }
-    }
-    fun buscarTransportistasDisponibles(): List<Transportista?> {
+    fun minar(){
+        listaTrabajadores.filterIsInstance<Minero>().forEach { it.trabajar(this) }
+        listaTrabajadores.filterIsInstance<Minero>().forEach { it.cobrar(this) }
 
-        return listaTrabajadores.filterIsInstance<Transportista>().filter { it.estaDisponible(this) }
     }
-    fun entregarPedido(pedido: Pedido){
-        val transportista = buscarTransportistasDisponibles().first()
-        transportista.trabajar(this)
-        pedido.entregado = true
-        pedidosRealizados.add(pedido)
+    fun buscarTransportistasDisponibles(): Transportista? {
+        var transportistaDisponible = listaTrabajadores.filterIsInstance<Transportista>().filter{ it.estaDisponible(this.dia) }
+        if (transportistaDisponible.isEmpty()){
+            return GestionarJuego.contratarTransportista(this)
+        }else{
+            return transportistaDisponible.first()
+        }
     }
-    fun gestionarPedido(pedido: Pedido) {
-        val mineralesPedido = pedido.listaMinerales.map { nombre ->
-            MineralesPosibles.entries.find { it.nombre == nombre }
-        }.filterNotNull()
+    fun entregarPedido(pedido: Pedido):Boolean{
+        val transportista = buscarTransportistasDisponibles()
+        if (transportista != null) {
+            transportista.trabajar(this)
+            pedido.entregado = true
+            pedidosRealizados.add(pedido)
+            return true
+        }else{
+            return false
+        }
+
+    }
+    fun añadirPedido(pedido: Pedido){
+        colaPedidos.add(pedido)
+    }
+    fun checkearMineralesPedido(pedido: Pedido): Pair<Boolean, List<Mineral>> {
+        val mineralesPedido = pedido.listaMinerales
         val tieneMinerales = mineralesPedido.all { mineral ->
             inventario.any { it.nombre == mineral.nombre && it.calidad.multiplicador >= pedido.calidadMinima.multiplicador }
         }
-        if (tieneMinerales) {
-            val precioACobrar = pedido.obtenerTotalValor()
-            cobrarDinero(precioACobrar)
+        return Pair(tieneMinerales, mineralesPedido)
+    }
+    fun gestionarPedido(pedido: Pedido):Boolean {
+        val mineralesComprobados = checkearMineralesPedido(pedido)
+        if (mineralesComprobados.first) {
+            if (entregarPedido(pedido)){
+                val precioACobrar = pedido.obtenerTotalValor()
+                cobrarDinero(precioACobrar)
 
-            val acciones = mutableListOf("Pedido procesado: ${pedido.nombreEmpresa}")
-            historialAcciones[dia] = acciones
+                //eliminar minerales
+
+                for (mineral in mineralesComprobados.second) {
+                    inventario.removeAll { it.nombre == mineral.nombre && it.calidad.multiplicador >= pedido.calidadMinima.multiplicador }
+                }
+
+                //eliminar pedido de la cola
+                //colaPedidos.remove(pedido)
+
+                //registra la accion del pedido
+                val acciones = mutableListOf("Pedido entregado a: ${pedido.nombreEmpresa}")
+                historialAcciones[dia] = acciones
+                return true
+            } else{
+                println("No se ha podido entregar el pedido: ${pedido.nombreEmpresa}")
+                pedidosPendientesEntrega.add(pedido)
+                return false
+            }
+
         } else {
             println("No se puede cumplir el pedido: ${pedido.nombreEmpresa}")
+            return false
         }
     }
 

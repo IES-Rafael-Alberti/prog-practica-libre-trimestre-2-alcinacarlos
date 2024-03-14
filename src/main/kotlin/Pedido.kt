@@ -1,45 +1,55 @@
 package org.practicatrim2
+import org.practicatrim2.Terminal.terminal
+import com.github.ajalt.mordant.rendering.TextColors
+import com.github.ajalt.mordant.table.table
+import com.github.ajalt.mordant.rendering.TextColors.*
 
 class Pedido(
-    val id:Int = generarId(),
     val nombreEmpresa:String,
-    var listaMinerales:MutableList<String>,
+    var listaMinerales:MutableList<Mineral>,
     var calidadMinima:Calidad,
     var entregado: Boolean = false
 ) {
+    private val id:Int = generarId()
     companion object{
         private var contador_id:Int = 0
         fun generarId(): Int {
             return ++contador_id
         }
     }
-    private fun agregarMineral(mineral: String) {
+    private fun agregarMineral(mineral: Mineral) {
         listaMinerales.add(mineral)
     }
 
-    private fun eliminarMineral(mineral: String) {
+    private fun eliminarMineral(mineral: Mineral) {
         listaMinerales.remove(mineral)
     }
     fun obtenerTotalValor(): Double {
         var total = 0.0 //Valor total
-        val nombresMinerales = listaMinerales.map { nombre ->
-            MineralesPosibles.entries.find { it.nombre == nombre }!!
+        val nombresMinerales = listaMinerales.map { mineral ->
+            MineralesPosibles.entries.find { it.nombre == mineral.nombre }!!
         }.toMutableList()
         for (mineral in nombresMinerales){
             total += mineral.valor
         }
         return total
     }
-    override fun toString(): String {
-        return """
-            Pedido:
-            ID: $id
-            Empresa: $nombreEmpresa
-            Minerales: $listaMinerales
-            Calidad mínima: ${calidadMinima.nombre}
-            Precio total: ${obtenerTotalValor()}$
-            Entregado: ${entregado}
-        """
+    fun mostrarPedido() {
+        terminal.println(table {
+            borderStyle = green
+            style = brightWhite
+            header {
+                row("Pedido", "Valores")
+                style = brightYellow
+            }
+            body {
+                row("ID", id)
+                row("Nombre de la Empresa:", nombreEmpresa)
+                row("Minerales", listaMinerales)
+                row("Calidad Minima", calidadMinima.nombre)
+                row("Entregado", entregado)
+            }
+        })
     }
 
 }
