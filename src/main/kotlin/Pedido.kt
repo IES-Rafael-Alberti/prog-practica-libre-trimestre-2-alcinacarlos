@@ -37,7 +37,6 @@ class Pedido(
         return listaMinerales.joinToString(", ") { it.nombre }
     }
     fun mostrarPedido() {
-        terminal.println(brightYellow("NUEVO PEDIDO!!!!"))
         terminal.println(table {
             borderStyle = green
             style = brightWhite

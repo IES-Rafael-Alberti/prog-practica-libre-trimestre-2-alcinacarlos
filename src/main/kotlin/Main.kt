@@ -12,11 +12,11 @@ fun main() {
 
     val mina = Mina("Mina Guapisima", 10000.00, trabajadores)
 
-    GestionarJuego.presentarJuego()
+    Menu.presentarJuego()
     //Thread.sleep(5000)
     GestionarJuego.primerDia(mina)
     GestionarJuego.iniciarMina(mina)
-    if (mina.obtenerDinero() >= 0){
+    if (mina.obtenerDinero() <= 0){
         terminal.println(brightRed("Te arruinaste!!!"))
         terminal.println(brightWhite("Mucha suerte en tu próxima aventura!!"))
     }else{

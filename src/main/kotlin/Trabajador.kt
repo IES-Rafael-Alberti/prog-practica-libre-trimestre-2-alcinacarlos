@@ -1,7 +1,5 @@
 package org.practicatrim2
-
-import com.github.ajalt.mordant.rendering.TextColors
-import com.github.ajalt.mordant.table.table
+import kotlin.random.Random
 
 interface Trabajador {
     val salario:Int
@@ -14,6 +12,13 @@ interface Trabajador {
     }
     fun darAlta(){
         dadoDeBaja = false
+    }
+    fun incorporarseRandom(){
+        if (Random.nextFloat() > 0.5f) darAlta()
+    }
+
+    fun lastimarseRandom(){
+        if (Random.nextFloat() > 0.5f) darBaja()
     }
     fun mostrarTrabajador()
 }

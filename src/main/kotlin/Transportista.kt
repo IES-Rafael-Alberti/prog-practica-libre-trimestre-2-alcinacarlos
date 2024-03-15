@@ -14,12 +14,14 @@ class Transportista(
 ): Persona(nombre, edad, dni), Trabajador {
     private var diaLiberacion:Int = 0
     companion object{
-        const val DIAS_COOLDOWN = 2
+        const val DIAS_COOLDOWN = 3
     }
     fun estaDisponible(dia: Int):Boolean{
-        return dia >= diaLiberacion
+        if(dadoDeBaja) incorporarseRandom()
+        return dia >= diaLiberacion && !dadoDeBaja
     }
     override fun trabajar(mina: Mina) {
+        lastimarseRandom()
         cobrar(mina)
         diaLiberacion = mina.dia + DIAS_COOLDOWN
     }

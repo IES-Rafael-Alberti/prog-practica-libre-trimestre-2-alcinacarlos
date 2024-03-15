@@ -1,7 +1,7 @@
 package org.practicatrim2
 import org.practicatrim2.Terminal.terminal
 import com.github.ajalt.mordant.rendering.TextColors.*
-import com.github.ajalt.mordant.terminal.*
+import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.terminal.YesNoPrompt
 import kotlin.random.Random
 
@@ -11,16 +11,6 @@ object GestionarJuego {
     const val MINERALES_MINIMOS_POR_MINERO = 2
     const val MINERALES_MAXIMOS_POR_MINERO = 10
     const val DIAS_ENTRE_PEDIDOS = 3
-
-    fun presentarJuego(){
-        println("Bienvenido a Mining Simulator Ultimate Deluxe Premium Edition (nombre muy original)")
-        println("En este juego, comienzas siendo el dueño de una MINA, tu objetivo es gestionar la mina de la manera más eficiente sin llegar a bancarota")
-        println("Cada 3 dias recibes un pedido que tienes que cumplir en un plazo")
-        println("Cada 5 dias los trabajadores cobran su sueldo")
-        println("Cada 10 dias tienes que pagar el alquiler de maquinaria")
-        println("Si te quedas en bancarota pierdes")
-        println("Con esta explicacion es suficiente, lo demás lo verás sobre la marcha, mucha suerte y cuidado con los gases!")
-    }
 
     fun generarMineralAleatorios():Mineral{
         val nombre = MineralesPosibles.entries.random().nombre
@@ -71,7 +61,7 @@ object GestionarJuego {
     }
     private fun generarNombreAleatorio(): String {
         val nombres = listOf(
-            "Juan", "María", "Pedro", "Ana", "José", "Isabel", "Francisco", "David", "Laura", "Carlos"
+            "Juan", "María", "Pedro", "Ana", "José", "Isabel", "Francisco", "David", "Laura", "Carlos", "Diego", "Lucas"
         )
         return nombres.random()
     }
@@ -89,22 +79,24 @@ object GestionarJuego {
     private fun generarCargoAleatorio(): Cargo {
         return Cargo.entries.toTypedArray().random()
     }
-
     private fun iniciarDia(mina:Mina){
         mina.avanzarDia()
-        terminal.println((brightMagenta("Dia ${mina.dia}, Dinero ${mina.obtenerDinero()}")))
-        var opcion:Int? = null
-        while (opcion !in 0..9){
-            Menu.mostrar()
-            opcion = readln().toIntOrNull()
-        }
-        when(opcion){
-            0 -> terminal.println(brightMagenta("Avanzando día..."))
-            1 -> {
-                terminal.println(brightMagenta("Total de trabajadores: ${mina.obtenerTrabajadores().size}"))
-                mina.obtenerTrabajadores().forEach { it.mostrarTrabajador() }
+        Menu.buclePrincipal(mina)
+    }
+    fun contratarTrabajador(mina: Mina){
+        var trabajador:Trabajador? = null
+        while (trabajador == null){
+            terminal.println(brightCyan("Qué tipo de trabajador quieres contratar? (transportista o minero)?"))
+            try {
+                val tipoTrabajador = readln()
+                trabajador = generarTrabajadorAleatorio(tipoTrabajador)
+                terminal.println(brightMagenta("Has contradado a un ${tipoTrabajador}"))
+                trabajador.mostrarTrabajador()
+            }catch (e:IllegalArgumentException){
+                println(e)
             }
         }
+        mina.contratarTrabajador(trabajador)
     }
     private fun generarNombreEmpresaAleatoria(): String {
         return listOf("Nvidia", "Alibaba", "Samsung", "Taiwan Semiconductor", "Sony", "Home Depot", "Procter & Gamble", "Visa", "Mastercard", "Nike", "JPMorgan Chase", "Exxon Mobil", "Walmart", "Chevron", "Bank of China", "Industrial and Commercial Bank of China", "Wells Fargo", "Coca-Cola", "Nestlé", "Intel", "Broadcom", "Pfizer", "Merck & Co.", "AT&T", "Verizon Communications", "Cisco Systems", "PayPal", "Abbott Laboratories").random()
@@ -123,34 +115,37 @@ object GestionarJuego {
             generarCalidadAleatoria()
         )
     }
-    private fun logicaGestionarPedidoCadaDia(mina: Mina){
+    fun logicaGestionarPedidoCadaDia(mina: Mina){
         val pedidosAEliminar = mutableListOf<Pedido>()
         for (pedido in mina.colaPedidos){
             if(mina.gestionarPedido(pedido)) pedidosAEliminar.add(pedido)
         }
+        if (pedidosAEliminar.isEmpty()) terminal.println(brightRed("No hay pedidos por gestionar, intenta conseguir alguno o completa los minerales que faltan en aquellos pedidos que ya tengas"))
         for (pedido in pedidosAEliminar){
+            terminal.println(brightYellow("Pedido ${pedido.nombreEmpresa} ha sido entregado!!"))
             mina.colaPedidos.remove(pedido)
         }
     }
     fun primerDia(mina: Mina){
-        val primerPedido = generarPedidoAleatorio()
-        primerPedido.mostrarPedido()
-        mina.añadirPedido(primerPedido)
-        Thread.sleep(2000)
+        mina.añadirPedido(generarPedidoAleatorio())
+    }
+    fun añadirPedidoRandom(mina: Mina){
+        terminal.println(brightYellow("NUEVO PEDIDO!!!!"))
+        val pedidoNuevo = generarPedidoAleatorio()
+        pedidoNuevo.mostrarPedido()
+        mina.añadirPedido(pedidoNuevo)
     }
     private fun añadirPedidosCadaXDias(mina: Mina){
-        if (mina.dia % DIAS_ENTRE_PEDIDOS == 0){
-            val pedidoNuevo = generarPedidoAleatorio()
-            pedidoNuevo.mostrarPedido()
-            mina.añadirPedido(pedidoNuevo)
-            Thread.sleep(2000)
+        if (mina.dia % DIAS_ENTRE_PEDIDOS == 0) {
+            añadirPedidoRandom(mina)
+            Thread.sleep(3000)
         }
     }
     fun iniciarMina(mina:Mina){
         do {
             iniciarDia(mina)
             añadirPedidosCadaXDias(mina)
-            logicaGestionarPedidoCadaDia(mina)
+            //logicaGestionarPedidoCadaDia(mina)
             Thread.sleep(1000)
 
         }while (mina.consultarActividad())
