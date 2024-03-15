@@ -1,5 +1,8 @@
 package org.practicatrim2
 
+import com.github.ajalt.mordant.rendering.TextColors
+import com.github.ajalt.mordant.table.table
+import org.practicatrim2.Terminal.terminal
 import kotlin.random.Random
 
 class Minero(
@@ -20,5 +23,19 @@ class Minero(
 
     override fun cobrar(mina: Mina) {
         mina.dinero -= salario
+    }
+    override fun mostrarTrabajador() {
+        terminal.println(table {
+            borderStyle = TextColors.green
+            style = TextColors.brightWhite
+            body {
+                row("Nombre", nombre)
+                row("Edad", edad)
+                row("DNI", dni)
+                row("Salario al día", "$salario$")
+                row("Cargo", cargo.nombre)
+                row ("Dado de baja", dadoDeBaja)
+            }
+        })
     }
 }

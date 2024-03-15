@@ -1,30 +1,36 @@
 package org.practicatrim2
 
-import java.util.function.BiPredicate
-
 class Mina(
     val nombre:String,
     var dinero:Double,
-    var listaTrabajadores:MutableList<Trabajador>
+    private var listaTrabajadores:MutableList<Trabajador>
 ) {
-    val inventario:MutableList<Mineral> = mutableListOf()
-    var historialAcciones: MutableMap<Int, MutableList<String>> = mutableMapOf()
-    var activa:Boolean = true //Indica si la mina está terminada o no
     var dia: Int = 0
     var colaPedidos:MutableList<Pedido> = mutableListOf()
-    val pedidosRealizados:MutableList<Pedido> = mutableListOf()
-    var pedidosPendientesEntrega:MutableSet<Pedido> = mutableSetOf()
+    val inventario:MutableList<Mineral> = mutableListOf()
+    private var historialAcciones: MutableMap<Int, MutableList<String>> = mutableMapOf()
+    private var activa:Boolean = true //Indica si la mina está terminada o no
+    private val pedidosRealizados:MutableList<Pedido> = mutableListOf()
+    private var pedidosPendientesEntrega:MutableSet<Pedido> = mutableSetOf()
 
     fun avanzarDia(){
         dia++
         minar()
     }
-    fun minar(){
+    fun obtenerDinero() = dinero
+    fun obtenerTrabajadores() = listaTrabajadores
+    fun contratarTrabajador(trabajador: Trabajador){
+        listaTrabajadores.add(trabajador)
+    }
+    fun consultarActividad():Boolean{
+        return activa && dinero < 0
+    }
+    private fun minar(){
         listaTrabajadores.filterIsInstance<Minero>().forEach { it.trabajar(this) }
         listaTrabajadores.filterIsInstance<Minero>().forEach { it.cobrar(this) }
 
     }
-    fun buscarTransportistasDisponibles(): Transportista? {
+    private fun buscarTransportistasDisponibles(): Transportista? {
         var transportistaDisponible = listaTrabajadores.filterIsInstance<Transportista>().filter{ it.estaDisponible(this.dia) }
         if (transportistaDisponible.isEmpty()){
             return GestionarJuego.contratarTransportista(this)
@@ -32,7 +38,7 @@ class Mina(
             return transportistaDisponible.first()
         }
     }
-    fun entregarPedido(pedido: Pedido):Boolean{
+    private fun entregarPedido(pedido: Pedido):Boolean{
         val transportista = buscarTransportistasDisponibles()
         if (transportista != null) {
             transportista.trabajar(this)
@@ -42,7 +48,6 @@ class Mina(
         }else{
             return false
         }
-
     }
     fun añadirPedido(pedido: Pedido){
         colaPedidos.add(pedido)
@@ -86,7 +91,7 @@ class Mina(
         }
     }
 
-    fun cobrarDinero(dinero: Double){
+    private fun cobrarDinero(dinero: Double){
         this.dinero += dinero
     }
 

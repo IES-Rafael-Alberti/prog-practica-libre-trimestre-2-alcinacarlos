@@ -1,5 +1,7 @@
 package org.practicatrim2
 
+import com.github.ajalt.mordant.rendering.TextColors
+import com.github.ajalt.mordant.table.table
 import kotlin.math.min
 
 class Transportista(
@@ -23,5 +25,20 @@ class Transportista(
     }
     override fun cobrar(mina: Mina) {
         mina.dinero -= salario
+    }
+
+    override fun mostrarTrabajador() {
+        Terminal.terminal.println(table {
+            borderStyle = TextColors.green
+            style = TextColors.brightWhite
+            body {
+                row("Nombre", nombre)
+                row("Edad", edad)
+                row("DNI", dni)
+                row("Salario al día", "$salario$")
+                row("Cargo", cargo.nombre)
+                row ("Dado de baja", dadoDeBaja)
+            }
+        })
     }
 }

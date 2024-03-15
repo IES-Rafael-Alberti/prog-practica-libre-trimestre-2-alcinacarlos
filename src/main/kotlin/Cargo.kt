@@ -1,11 +1,11 @@
 package org.practicatrim2
 
 enum class Cargo(val nombre:String, val salario:Int) {
-    JEFE("Jefe", 2500),
-    AYUDANTE("Ayudante", 900),
+    JEFE("Jefe", 550),
+    AYUDANTE("Ayudante", 120),
     PRACTICAS("Practicas", 0),
-    TECNICO("Tecnico", 1600),
-    OPERARIO("Operario", 1900),
-    PERFORISTA("Perforista", 1200),
-    CONDUCTOR("Conductor", 2300)
+    TECNICO("Tecnico", 190),
+    OPERARIO("Operario", 250),
+    PERFORISTA("Perforista", 300),
+    CONDUCTOR("Conductor", 350)
 }

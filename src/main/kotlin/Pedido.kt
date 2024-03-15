@@ -1,6 +1,5 @@
 package org.practicatrim2
 import org.practicatrim2.Terminal.terminal
-import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.rendering.TextColors.*
 
@@ -28,13 +27,17 @@ class Pedido(
         var total = 0.0 //Valor total
         val nombresMinerales = listaMinerales.map { mineral ->
             MineralesPosibles.entries.find { it.nombre == mineral.nombre }!!
-        }.toMutableList()
+        }
         for (mineral in nombresMinerales){
             total += mineral.valor
         }
         return total
     }
+    fun listaMineralesAString():String{
+        return listaMinerales.joinToString(", ") { it.nombre }
+    }
     fun mostrarPedido() {
+        terminal.println(brightYellow("NUEVO PEDIDO!!!!"))
         terminal.println(table {
             borderStyle = green
             style = brightWhite
@@ -45,7 +48,7 @@ class Pedido(
             body {
                 row("ID", id)
                 row("Nombre de la Empresa:", nombreEmpresa)
-                row("Minerales", listaMinerales)
+                row("Minerales", listaMineralesAString())
                 row("Calidad Minima", calidadMinima.nombre)
                 row("Entregado", entregado)
             }

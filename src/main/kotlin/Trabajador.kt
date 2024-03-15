@@ -1,5 +1,8 @@
 package org.practicatrim2
 
+import com.github.ajalt.mordant.rendering.TextColors
+import com.github.ajalt.mordant.table.table
+
 interface Trabajador {
     val salario:Int
     val cargo:Cargo
@@ -12,4 +15,5 @@ interface Trabajador {
     fun darAlta(){
         dadoDeBaja = false
     }
+    fun mostrarTrabajador()
 }

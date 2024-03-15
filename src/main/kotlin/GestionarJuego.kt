@@ -7,9 +7,10 @@ import kotlin.random.Random
 
 object GestionarJuego {
     const val MINERAL_MINIMO_POR_PEDIDO = 3
-    const val MINERAL_MAXIMO_POR_PEDIDO = 15
-    const val MINERALES_MINIMOS_POR_MINERO = 6
-    const val MINERALES_MAXIMOS_POR_MINERO = 20
+    const val MINERAL_MAXIMO_POR_PEDIDO = 5
+    const val MINERALES_MINIMOS_POR_MINERO = 2
+    const val MINERALES_MAXIMOS_POR_MINERO = 10
+    const val DIAS_ENTRE_PEDIDOS = 3
 
     fun presentarJuego(){
         println("Bienvenido a Mining Simulator Ultimate Deluxe Premium Edition (nombre muy original)")
@@ -32,7 +33,7 @@ object GestionarJuego {
         val respuesta = YesNoPrompt("Quieres contratar a otro transportista?", terminal).ask()
         if (respuesta!!){
             val transportista = generarTrabajadorAleatorio("transportista") as Transportista
-            mina.listaTrabajadores.add(transportista)
+            mina.contratarTrabajador(transportista)
             terminal.println(brightMagenta("Has contratado a: $transportista"))
             return transportista
         }else{
@@ -46,7 +47,6 @@ object GestionarJuego {
         val edadAleatoria = generarEdadAleatoria()
         val dniAleatorio = generarDniAleatorio()
         val cargoAleatorio = generarCargoAleatorio()
-        val dadoDeBajaAleatorio = generarDadoDeBajaAleatorio()
         return when (tipo){
             "transportista" -> Transportista(
                 nombreAleatorio,
@@ -54,7 +54,7 @@ object GestionarJuego {
                 dniAleatorio,
                 Cargo.CONDUCTOR.salario,
                 Cargo.CONDUCTOR,
-                dadoDeBajaAleatorio
+                false
             )
             "minero" -> Minero(
                 nombreAleatorio,
@@ -62,7 +62,7 @@ object GestionarJuego {
                 dniAleatorio,
                 cargoAleatorio.salario,
                 cargoAleatorio,
-                dadoDeBajaAleatorio
+                false
             )
 
             else -> {throw IllegalArgumentException("Trabajador no especificado")}
@@ -90,13 +90,21 @@ object GestionarJuego {
         return Cargo.entries.toTypedArray().random()
     }
 
-    private fun generarDadoDeBajaAleatorio(): Boolean {
-        return (0..1).random() == 1
-    }
-
     private fun iniciarDia(mina:Mina){
         mina.avanzarDia()
-        terminal.println((brightMagenta("Dia ${mina.dia}")))
+        terminal.println((brightMagenta("Dia ${mina.dia}, Dinero ${mina.obtenerDinero()}")))
+        var opcion:Int? = null
+        while (opcion !in 0..9){
+            Menu.mostrar()
+            opcion = readln().toIntOrNull()
+        }
+        when(opcion){
+            0 -> terminal.println(brightMagenta("Avanzando día..."))
+            1 -> {
+                terminal.println(brightMagenta("Total de trabajadores: ${mina.obtenerTrabajadores().size}"))
+                mina.obtenerTrabajadores().forEach { it.mostrarTrabajador() }
+            }
+        }
     }
     private fun generarNombreEmpresaAleatoria(): String {
         return listOf("Nvidia", "Alibaba", "Samsung", "Taiwan Semiconductor", "Sony", "Home Depot", "Procter & Gamble", "Visa", "Mastercard", "Nike", "JPMorgan Chase", "Exxon Mobil", "Walmart", "Chevron", "Bank of China", "Industrial and Commercial Bank of China", "Wells Fargo", "Coca-Cola", "Nestlé", "Intel", "Broadcom", "Pfizer", "Merck & Co.", "AT&T", "Verizon Communications", "Cisco Systems", "PayPal", "Abbott Laboratories").random()
@@ -115,22 +123,36 @@ object GestionarJuego {
             generarCalidadAleatoria()
         )
     }
-    fun iniciarMina(mina:Mina){
-        do {
+    private fun logicaGestionarPedidoCadaDia(mina: Mina){
+        val pedidosAEliminar = mutableListOf<Pedido>()
+        for (pedido in mina.colaPedidos){
+            if(mina.gestionarPedido(pedido)) pedidosAEliminar.add(pedido)
+        }
+        for (pedido in pedidosAEliminar){
+            mina.colaPedidos.remove(pedido)
+        }
+    }
+    fun primerDia(mina: Mina){
+        val primerPedido = generarPedidoAleatorio()
+        primerPedido.mostrarPedido()
+        mina.añadirPedido(primerPedido)
+        Thread.sleep(2000)
+    }
+    private fun añadirPedidosCadaXDias(mina: Mina){
+        if (mina.dia % DIAS_ENTRE_PEDIDOS == 0){
             val pedidoNuevo = generarPedidoAleatorio()
             pedidoNuevo.mostrarPedido()
-            Thread.sleep(2000)
             mina.añadirPedido(pedidoNuevo)
+            Thread.sleep(2000)
+        }
+    }
+    fun iniciarMina(mina:Mina){
+        do {
             iniciarDia(mina)
+            añadirPedidosCadaXDias(mina)
+            logicaGestionarPedidoCadaDia(mina)
             Thread.sleep(1000)
-            val pedidosAEliminar = mutableListOf<Pedido>()
-            for (pedido in mina.colaPedidos){
-                if(mina.gestionarPedido(pedido)) pedidosAEliminar.add(pedido)
-            }
-            for (pedido in pedidosAEliminar){
-                mina.colaPedidos.remove(pedido)
-            }
 
-        }while (mina.activa)
+        }while (mina.consultarActividad())
     }
 }
