@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>GestionarJuego</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            PRO_2324_u4u5u6_libre
+                    </a>
+            </div>
+            <div class="library-version">
+1.0-SNAPSHOT            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":dokkaHtml/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="PRO_2324_u4u5u6_libre::org.practicatrim2/GestionarJuego///PointingToDeclaration//769193423">
+  <div class="breadcrumbs"><a href="../../../index.html">PRO_2324_u4u5u6_libre</a><span class="delimiter">/</span><a href="../index.html">org.practicatrim2</a><span class="delimiter">/</span><span class="current">GestionarJuego</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Gestionar</span><wbr></wbr><span><span>Juego</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">GestionarJuego</a></div><p class="paragraph">Esta clase se encarga de la lógica principal del juego.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1076998319%2FProperties%2F769193423" anchor-label="DIAS_ENTRE_PEDIDOS" id="-1076998319%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-i-a-s_-e-n-t-r-e_-p-e-d-i-d-o-s.html"><span><span>DIAS_ENTRE_PEDIDOS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1076998319%2FProperties%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-d-i-a-s_-e-n-t-r-e_-p-e-d-i-d-o-s.html">DIAS_ENTRE_PEDIDOS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div><div class="brief "><p class="paragraph">Constante que define el número de días que deben pasar entre cada pedido nuevo.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="672312400%2FProperties%2F769193423" anchor-label="MINERAL_MAXIMO_POR_PEDIDO" id="672312400%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-n-e-r-a-l_-m-a-x-i-m-o_-p-o-r_-p-e-d-i-d-o.html"><span><span>MINERAL_MAXIMO_POR_PEDIDO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="672312400%2FProperties%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-n-e-r-a-l_-m-a-x-i-m-o_-p-o-r_-p-e-d-i-d-o.html">MINERAL_MAXIMO_POR_PEDIDO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span></div><div class="brief "><p class="paragraph">Constante que define el número máximo de minerales por pedido.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="636001186%2FProperties%2F769193423" anchor-label="MINERAL_MINIMO_POR_PEDIDO" id="636001186%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-n-e-r-a-l_-m-i-n-i-m-o_-p-o-r_-p-e-d-i-d-o.html"><span><span>MINERAL_MINIMO_POR_PEDIDO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="636001186%2FProperties%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-n-e-r-a-l_-m-i-n-i-m-o_-p-o-r_-p-e-d-i-d-o.html">MINERAL_MINIMO_POR_PEDIDO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div><div class="brief "><p class="paragraph">Constante que define el número mínimo de minerales por pedido.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1910949952%2FProperties%2F769193423" anchor-label="MINERALES_MAXIMOS_POR_MINERO" id="1910949952%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-n-e-r-a-l-e-s_-m-a-x-i-m-o-s_-p-o-r_-m-i-n-e-r-o.html"><span><span>MINERALES_MAXIMOS_POR_MINERO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1910949952%2FProperties%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-n-e-r-a-l-e-s_-m-a-x-i-m-o-s_-p-o-r_-m-i-n-e-r-o.html">MINERALES_MAXIMOS_POR_MINERO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">10</span></div><div class="brief "><p class="paragraph">Constante que define el número máximo de minerales que un minero puede extraer por día.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="785302318%2FProperties%2F769193423" anchor-label="MINERALES_MINIMOS_POR_MINERO" id="785302318%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-n-e-r-a-l-e-s_-m-i-n-i-m-o-s_-p-o-r_-m-i-n-e-r-o.html"><span><span>MINERALES_MINIMOS_POR_MINERO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="785302318%2FProperties%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-n-e-r-a-l-e-s_-m-i-n-i-m-o-s_-p-o-r_-m-i-n-e-r-o.html">MINERALES_MINIMOS_POR_MINERO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">2</span></div><div class="brief "><p class="paragraph">Constante que define el número mínimo de minerales que un minero puede extraer por día.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="2094688964%2FFunctions%2F769193423" anchor-label="añadirPedidoRandom" id="2094688964%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="añadir-pedido-random.html"><span>añadir</span><wbr></wbr><span>Pedido</span><wbr></wbr><span><span>Random</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2094688964%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="añadir-pedido-random.html"><span class="token function">añadirPedidoRandom</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Función que permite al jugador añadir un pedido aleatorio a la mina.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1491787100%2FFunctions%2F769193423" anchor-label="contratarTrabajador" id="-1491787100%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="contratar-trabajador.html"><span>contratar</span><wbr></wbr><span><span>Trabajador</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1491787100%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="contratar-trabajador.html"><span class="token function">contratarTrabajador</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Función que permite al jugador contratar un trabajador.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1398293492%2FFunctions%2F769193423" anchor-label="contratarTransportista" id="-1398293492%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="contratar-transportista.html"><span>contratar</span><wbr></wbr><span><span>Transportista</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1398293492%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="contratar-transportista.html"><span class="token function">contratarTransportista</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-transportista/index.html">Transportista</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Función que intenta contratar un transportista para la mina.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-683169891%2FFunctions%2F769193423" anchor-label="generarMineralAleatorios" id="-683169891%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generar-mineral-aleatorios.html"><span>generar</span><wbr></wbr><span>Mineral</span><wbr></wbr><span><span>Aleatorios</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-683169891%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="generar-mineral-aleatorios.html"><span class="token function">generarMineralAleatorios</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-mineral/index.html">Mineral</a></div><div class="brief "><p class="paragraph">Función que genera un mineral aleatorio.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1016567283%2FFunctions%2F769193423" anchor-label="generarPedidoAleatorio" id="1016567283%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generar-pedido-aleatorio.html"><span>generar</span><wbr></wbr><span>Pedido</span><wbr></wbr><span><span>Aleatorio</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1016567283%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="generar-pedido-aleatorio.html"><span class="token function">generarPedidoAleatorio</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-pedido/index.html">Pedido</a></div><div class="brief "><p class="paragraph">Función que genera un pedido aleatorio.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-458873656%2FFunctions%2F769193423" anchor-label="generarTrabajadorAleatorio" id="-458873656%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generar-trabajador-aleatorio.html"><span>generar</span><wbr></wbr><span>Trabajador</span><wbr></wbr><span><span>Aleatorio</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-458873656%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="generar-trabajador-aleatorio.html"><span class="token function">generarTrabajadorAleatorio</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tipo<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-trabajador/index.html">Trabajador</a></div><div class="brief "><p class="paragraph">Función que genera un trabajador aleatorio.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1930185164%2FFunctions%2F769193423" anchor-label="iniciarMina" id="1930185164%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="iniciar-mina.html"><span>iniciar</span><wbr></wbr><span><span>Mina</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1930185164%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="iniciar-mina.html"><span class="token function">iniciarMina</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Función que inicia la lógica del juego.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1853135395%2FFunctions%2F769193423" anchor-label="logicaGestionarPedidoCadaDia" id="1853135395%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="logica-gestionar-pedido-cada-dia.html"><span>logica</span><wbr></wbr><span>Gestionar</span><wbr></wbr><span>Pedido</span><wbr></wbr><span>Cada</span><wbr></wbr><span><span>Dia</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1853135395%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="logica-gestionar-pedido-cada-dia.html"><span class="token function">logicaGestionarPedidoCadaDia</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Función que se encarga de la lógica de gestionar los pedidos cada día.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1595739117%2FFunctions%2F769193423" anchor-label="primerDia" id="1595739117%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="primer-dia.html"><span>primer</span><wbr></wbr><span><span>Dia</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1595739117%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="primer-dia.html"><span class="token function">primerDia</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mina<span class="token operator">: </span><a href="../-mina/index.html">Mina</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Función que se encarga de la lógica del primer día de la mina.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
