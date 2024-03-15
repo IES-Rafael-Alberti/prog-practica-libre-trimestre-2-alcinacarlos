@@ -7,12 +7,20 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 #### **Criterio global 1: Instancia objetos y hacer uso de ellos**
 - **(2.a, 2.b, 2.c, 2.d, 2.f, 2.h, 4.f, 4.a)**: Describe cómo has instanciado y utilizado objetos en tu proyecto. ¿Cómo has aplicado los constructores y pasado parámetros a los métodos? Proporciona ejemplos específicos de tu código.
 - Se utilizan constructores para inicializar los atributos de un objeto al crearlo.
-  La clase [Mina](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/1541c1b5a6d49eb1350b380b69578c148ba5768d/src/main/kotlin/Main.kt#L13) tiene un constructor que define el nombre, dinero y los trabajadores iniciales.
-  La clase Transportista tiene un constructor que define el nombre, edad, DNI, salario, cargo y estado de baja del trabajador.
+  La clase *Mina* tiene un constructor que define el nombre, dinero y los trabajadores iniciales.
+- https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/1541c1b5a6d49eb1350b380b69578c148ba5768d/src/main/kotlin/Main.kt#L13
+  Ejemplo 1
+- https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/2901d020500de4756de82863fd226f480e367340/src/main/kotlin/GestionarJuego.kt#L43-L48
+- Ejemplo 2
+- https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/2901d020500de4756de82863fd226f480e367340/src/main/kotlin/GestionarJuego.kt#L57-L71
 
 #### **Criterio global 2: Crear y llamar métodos estáticos**
 - **(4.i)**: ¿Has definido algún método/propiedad estático en tu proyecto? ¿Cuál era el objetivo y por qué consideraste que debía ser estático en lugar de un método/propiedad de instancia?
+- El obejetivo era poder generar una tabla a partir de una lista de tipo [Mineral](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/master/src/main/kotlin/Mineral.kt)
+- https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/2901d020500de4756de82863fd226f480e367340/src/main/kotlin/Menu.kt#L47-L74
 - **(2.e)**: ¿En qué parte del código se llama a un método estático o se utiliza la propiedad estática?
+- En el bucle principal del menú para poder ver todos los minerales que hay en el inventario
+- https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/2901d020500de4756de82863fd226f480e367340/src/main/kotlin/Menu.kt#L117-L123
 
 #### **Criterio global 3: Uso de entornos**
 - **(2.i)**: ¿Cómo utilizaste el IDE para el desarrollo de tu proyecto? Describe el proceso de creación, compilación, y prueba de tu programa.
