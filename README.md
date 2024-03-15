@@ -1,64 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/mnkKwimk)
 # Actividad: Desarrollo de Proyecto Software en Kotlin
-
-**ID actividad:** 2324_PRO_u4u5u6_libre
-
-**Agrupamiento de la actividad**: Individual 
-
----
-
-### Descripción:
-
-La actividad consiste en el desarrollo de un proyecto software en Kotlin, permitiendo al estudiante elegir la temática. Este proyecto debe demostrar la comprensión y aplicación de los conceptos de programación orientada a objetos (POO), incluyendo la definición y uso de clases, herencia, interfaces, genericos, principios SOLID y el uso de librerías externas.
-
-**Objetivo:**
-
-- Demostrar comprensión de los fundamentos de POO mediante la instanciación y uso de objetos.
-- Aplicar conceptos avanzados de POO como herencia, clases abstractas, e interfaces.
-- Crear y usar clases que hagan uso de genéricos. 
-- Aplicar principios SOLID.
-- Integrar y utilizar librerías de clases externas para extender la funcionalidad del proyecto.
-- Documentar y presentar el código de manera clara y comprensible.
-
-**Trabajo a realizar:**
-
-1. **Selección de la Temática:** Elige un tema de tu interés que pueda ser abordado mediante una aplicación software. Esto podría ser desde una aplicación de gestión para una pequeña empresa, una herramienta para ayudar en la educación, hasta un juego simple. Define claramente el problema que tu aplicación pretende resolver.
-
-2. **Planificación:** Documenta brevemente cómo tu aplicación solucionará el problema seleccionado, incluyendo las funcionalidades principales que desarrollarás.
-
-3. **Desarrollo:**
-   - **Instancia de Objetos:** Tu aplicación debe crear y utilizar objetos, demostrando tu comprensión de la instanciación y el uso de constructores, métodos, y propiedades.
-   - **Métodos Estáticos:** Define y utiliza al menos un método estático, explicando por qué es necesario en tu aplicación.
-   - **Uso de IDE:** Desarrolla tu proyecto utilizando un IDE, aprovechando sus herramientas para escribir, compilar, y probar tu código.
-   - **Definición de Clases:** Crea clases personalizadas con sus respectivas propiedades, métodos, y constructores.
-   - **Clases con genéricos:** Define y utiliza al menos una clase que haga uso de genéricos en tu aplicación.
-   - **Herencia y Polimorfismo:** Implementa herencia y/o interfaces en tu proyecto para demostrar la reutilización de código y la flexibilidad de tu diseño.  **Usa los principios SOLID:** Ten presente durante el desarrollo los principios SOLID y úsalos durante el diseño para mejorar tu aplicación.
-   - **Librerías de Clases:** Integra y utiliza una o más librerías externas que enriquezcan la funcionalidad de tu aplicación.
-   - **Documentación:** Comenta tu código de manera efectiva, facilitando su comprensión y mantenimiento.
-
-4. **Prueba y Depuración:** Realiza pruebas para asegurarte de que tu aplicación funciona como se espera y depura cualquier error encontrado.
-5. **Contesta a las preguntas** ver el punto **Preguntas para la Evaluación**
-
-### Recursos
-
-- Apuntes dados en clase sobre programación orientada a objetos, Kotlin, uso de IDEs, y manejo de librerías.
-- Recursos vistos en clase, incluyendo ejemplos de código, documentación de Kotlin, y guías de uso de librerías.
-
-### Evaluación y calificación
-
-**RA y CE evaluados**: Resultados de Aprendizaje 2, 4, 6, 7 y Criterios de Evaluación asociados.
-
-**Conlleva presentación**: SI
-
-**Rubrica**: Mas adelante se mostrará la rubrica.
-
-### Entrega
-
-> **La entrega tiene que cumplir las condiciones de entrega para poder ser calificada. En caso de no cumplirlas podría calificarse como no entregada.**
->
-- **Conlleva la entrega de URL a repositorio:** El contenido se entregará en un repositorio GitHub. 
-- **Respuestas a las preguntas:** Deben contestarse en este fichero, README.md
-
 
 # Preguntas para la Evaluación
 
@@ -66,6 +6,9 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 
 #### **Criterio global 1: Instancia objetos y hacer uso de ellos**
 - **(2.a, 2.b, 2.c, 2.d, 2.f, 2.h, 4.f, 4.a)**: Describe cómo has instanciado y utilizado objetos en tu proyecto. ¿Cómo has aplicado los constructores y pasado parámetros a los métodos? Proporciona ejemplos específicos de tu código.
+- Se utilizan constructores para inicializar los atributos de un objeto al crearlo.
+  La clase [Mina](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/1541c1b5a6d49eb1350b380b69578c148ba5768d/src/main/kotlin/Main.kt#L13) tiene un constructor que define el nombre, dinero y los trabajadores iniciales.
+  La clase Transportista tiene un constructor que define el nombre, edad, DNI, salario, cargo y estado de baja del trabajador.
 
 #### **Criterio global 2: Crear y llamar métodos estáticos**
 - **(4.i)**: ¿Has definido algún método/propiedad estático en tu proyecto? ¿Cuál era el objetivo y por qué consideraste que debía ser estático en lugar de un método/propiedad de instancia?
