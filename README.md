@@ -80,8 +80,10 @@ Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
 #### **Criterio global 8: Documentado**
 - **(7.h)**: Muestra ejemplos de cómo has documentado y comentado tu código. ¿Que herramientas has utilizado? ¿Cómo aseguras que tu documentación aporte valor para la comprensión, mantenimiento y depuración del código?
 - He usado comentarios para documentar el codigo para que sea legible en un futuro y las demás personas puedan entender mi código de una manera fácil.
+- El código ha sido documentado con la documentación correspondiente de Kotlin(KDoc).
 - https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/5a5b0fd06990e82c67492b1a76fbdb7c6ddd4c32/src/main/kotlin/Calidad.kt#L3-L14
 #### **Criterio global 9: Genéricos**
 - **(6.f)**: Muestra ejemplos de tu código sobre cómo has implementado una clase con genéricos. ¿Qué beneficio has obtenido?
+- Se ha intentado pero no ha sido posible :(
 
 
