@@ -1,3 +1,5 @@
+# PAGINA WEB PROYECTO
+https://ies-rafael-alberti.github.io/prog-practica-libre-trimestre-2-alcinacarlos/dokka/html/index.html
 # Actividad: Desarrollo de Proyecto Software en Kotlin
 
 # Preguntas para la Evaluación
@@ -70,8 +72,9 @@ Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
 
 #### **Criterio global 7: Librerías de clases**
 - **(2.g, 4.k)**: Describe cualquier librería externa que hayas incorporado en tu proyecto. Explica cómo y por qué las elegiste, y cómo las incorporaste en tu proyecto. ¿Cómo extendió la funcionalidad de tu aplicación? Proporciona ejemplos específicos de su uso en tu proyecto.
-- [Mordant](https://github.com/ajalt/mordant) porque hace trabajar con terminal mucho más facil e intuitivo y puedo crear tablas y animaciones por terminal de una forma eficiente.
+* [Mordant](https://github.com/ajalt/mordant) porque hace trabajar con terminal mucho más facil e intuitivo y puedo crear tablas y animaciones por terminal de una forma eficiente.
 - https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/5a5b0fd06990e82c67492b1a76fbdb7c6ddd4c32/src/main/kotlin/Menu.kt#L24-L45
+* [Dokka](https://github.com/Kotlin/dokka) porque genera una pagina web con la documentacion que has introducido en Kotlin
 #### **Criterio global 8: Documentado**
 - **(7.h)**: Muestra ejemplos de cómo has documentado y comentado tu código. ¿Que herramientas has utilizado? ¿Cómo aseguras que tu documentación aporte valor para la comprensión, mantenimiento y depuración del código?
 - He usado comentarios para documentar el codigo para que sea legible en un futuro y las demás personas puedan entender mi código de una manera fácil.
