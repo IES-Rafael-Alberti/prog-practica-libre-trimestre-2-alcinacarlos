@@ -23,7 +23,15 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 - https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/2901d020500de4756de82863fd226f480e367340/src/main/kotlin/Menu.kt#L117-L123
 
 #### **Criterio global 3: Uso de entornos**
-- **(2.i)**: ¿Cómo utilizaste el IDE para el desarrollo de tu proyecto? Describe el proceso de creación, compilación, y prueba de tu programa.
+**(2.i)**: ¿Cómo utilizaste el IDE para el desarrollo de tu proyecto? Describe el proceso de creación, compilación, y prueba de tu programa.
+Entorno de desarrollo:
+Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
+Creación del proyecto:
+* Se creó un nuevo proyecto Kotlin.
+* Se agregaron las dependencias necesarias al proyecto.
+* Se crearon las clases y archivos necesarios para el programa. 
+* Se utilizó el botón "Run" del IDE para compilar y ejecutar el programa. 
+* Se utilizó el debugger del IDE para detectar y corregir errores en el código.
 
 #### **Criterio global 4: Definir clases y su contenido**
 - **(4.b, 4.c, 4.d, 4.g)**: Explica sobre un ejemplo de tu código, cómo definiste las clases en tu proyecto, es decir como identificaste las de propiedades, métodos y constructores y modificadores del control de acceso a métodos y propiedades, para representar al objeto del mundo real. ¿Cómo contribuyen estas clases a la solución del problema que tu aplicación aborda?
