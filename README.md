@@ -35,8 +35,7 @@ Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
 
 #### **Criterio global 4: Definir clases y su contenido**
 **(4.b, 4.c, 4.d, 4.g)**: Explica sobre un ejemplo de tu código, cómo definiste las clases en tu proyecto, es decir como identificaste las de propiedades, métodos y constructores y modificadores del control de acceso a métodos y propiedades, para representar al objeto del mundo real. ¿Cómo contribuyen estas clases a la solución del problema que tu aplicación aborda?
-Ejemplo de la clase [Mina](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/master/src/main/kotlin/Mina.kt)
-Propiedades:
+- Ejemplo de la clase [Mina](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-alcinacarlos/blob/master/src/main/kotlin/Mina.kt)
 * _nombre_: Nombre de la mina (String)
 * _dinero_: Dinero disponible en la mina (Int)
 * _inventario_: Lista de minerales en la mina (MutableList<Mineral>)
