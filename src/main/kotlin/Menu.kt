@@ -4,7 +4,13 @@ import com.github.ajalt.mordant.rendering.TextColors.*
 import com.github.ajalt.mordant.table.table
 import org.practicatrim2.Terminal.terminal
 
+/**
+ * Esta clase se encarga de mostrar el menú principal del juego y gestionar las opciones del jugador.
+ */
 object Menu {
+    /**
+     * Función que presenta el juego al jugador.
+     */
     fun presentarJuego(){
         println("Bienvenido a Mining Simulator Ultimate Deluxe Premium Edition (nombre muy original)")
         println("En este juego, comienzas siendo el dueño de una MINA, tu objetivo es gestionar la mina de la manera más eficiente sin llegar a bancarota")
@@ -30,14 +36,19 @@ object Menu {
                 row("3 ->", "Ver todos los empleados")
                 row("4 ->", "Ver todos los minerales obtenidos")
                 row("5 ->", "Ver los pedidos en cola")
-                row("6 ->", "Ver los pedidos pendientes de entrega")
-                row("7 ->", "Ver los pedidos realizados")
-                row("8 ->", "Ver el historial de acciones")
-                row("9 ->", "Contratar a más trabajadores")
-                row("10 ->", "Abandonar la mina")
+                row("6 ->", "Ver los pedidos realizados")
+                row("7 ->", "Ver el historial de acciones")
+                row("8 ->", "Contratar a más trabajadores")
+                row("9 ->", "Abandonar la mina")
             }
         })
     }
+
+    /**
+     * Función privada que muestra una tabla con los minerales que tiene la mina.
+     *
+     * @param minerales La lista de minerales que se quiere mostrar.
+     */
     private fun tablaMinerales(minerales: List<Mineral>){
         val tabla = mutableListOf<List<Any>>()
         for (mineral in minerales) {
@@ -61,6 +72,11 @@ object Menu {
 
         })
     }
+    /**
+     * Función que muestra el estado actual de la mina.
+     *
+     * @param mina La mina de la que se quiere mostrar el estado.
+     */
     fun obtenerEstadoActualMina(mina: Mina){
         terminal.println(table {
             borderStyle = green
@@ -74,10 +90,15 @@ object Menu {
                 row("Dinero", "${mina.dinero}$")
                 row("Trabajadores", mina.obtenerTrabajadores().size)
                 row("Minerales en inventario", mina.obtenerInventario().size)
-                row("Pedidos pendientes", mina.obtenerPedidos().size + mina.obtenerpedidosPendientesEntrega().size)
+                row("Pedidos pendientes", mina.obtenerPedidos().size)
             }
         })
     }
+    /**
+     * Función que inicia el bucle principal del juego.
+     *
+     * @param mina La mina con la que se quiere jugar.
+     */
     fun buclePrincipal(mina: Mina){
         var opcion:Int? = null
         while (opcion != 0){
@@ -106,21 +127,16 @@ object Menu {
                     pedidos.forEach { it.mostrarPedido() }
                 }
                 6 -> {
-                    val pedidos = mina.obtenerpedidosPendientesEntrega()
-                    if (pedidos.size == 0) terminal.println(brightRed("Actualemente no hay pedidos pendientes de entrega"))
-                    pedidos.forEach { it.mostrarPedido() }
-                }
-                7 -> {
                     val pedidos = mina.obtenerpedidosRealizados()
                     if (pedidos.size == 0) terminal.println(brightRed("Actualemente no hay pedidos realizados en el historial"))
                     pedidos.forEach { it.mostrarPedido() }
                 }
-                8 -> {
+                7 -> {
                     val historialAcciones = mina.obtenerHistorialAcciones()
                     println(historialAcciones)
                 }
-                9 -> GestionarJuego.contratarTrabajador(mina)
-                10 -> {
+                8 -> GestionarJuego.contratarTrabajador(mina)
+                9 -> {
                     mina.finalizar()
                     opcion = 0
                 }

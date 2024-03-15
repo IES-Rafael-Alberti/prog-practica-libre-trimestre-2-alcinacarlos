@@ -1,5 +1,11 @@
 package org.practicatrim2
 
+/**
+ * Enumeración que define los diferentes tipos de minerales que pueden encontrarse en el juego.
+ *
+ * @param nombre El nombre del mineral.
+ * @param valor El valor base del mineral.
+ */
 enum class MineralesPosibles(val nombre: String, val valor: Double) {
     // Minerales comunes
     CALCITA("Calcita", 2.0),

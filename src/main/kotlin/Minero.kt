@@ -4,7 +4,16 @@ import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.table
 import org.practicatrim2.Terminal.terminal
 import kotlin.random.Random
-
+/**
+ * Representa un minero
+ *
+ * @param nombre El nombre del minero.
+ * @param edad La edad del minero.
+ * @param dni El DNI del minero.
+ * @param salario El salario diario del minero.
+ * @param cargo El cargo del minero (un objeto de la clase `Cargo`).
+ * @param dadoDeBaja Indica si el minero está dado de baja o no.
+ */
 class Minero(
     nombre: String,
     edad: Int,
@@ -13,12 +22,24 @@ class Minero(
     override val cargo: Cargo,
     override var dadoDeBaja: Boolean
 ): Persona(nombre, edad, dni), Trabajador {
+
+    /**
+     * Comprueba si el minero está disponible para trabajar.
+     *
+     * @return `true` si el minero está disponible, `false` en caso contrario.
+     */
     fun estaDisponible():Boolean{
         if(dadoDeBaja) {
             incorporarseRandom()
             return false
         }else return true
     }
+
+    /**
+     * Simula la actividad del minero en la mina.
+     *
+     * @param mina La mina en la que trabaja el minero.
+     */
     override fun trabajar(mina: Mina) {
         if (!estaDisponible()) return
         lastimarseRandom()
@@ -30,6 +51,11 @@ class Minero(
         }
     }
 
+    /**
+     * Cobra el salario al minero.
+     *
+     * @param mina La mina que paga al minero.
+     */
     override fun cobrar(mina: Mina) {
         mina.dinero -= salario
     }

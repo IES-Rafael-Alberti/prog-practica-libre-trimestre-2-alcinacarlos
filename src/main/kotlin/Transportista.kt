@@ -4,7 +4,16 @@ import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.table
 import kotlin.math.min
 
-class Transportista(
+/**
+ * Clase que define las características y funcionalidades de un transportista
+ *
+ * @param nombre El nombre del transportista.
+ * @param edad La edad del transportista.
+ * @param dni El DNI del transportista.
+ * @param salario El salario diario del transportista.
+ * @param cargo El cargo del transportista.
+ * @param dadoDeBaja Indica si el transportista está dado de baja o no.
+ */class Transportista(
     nombre: String,
     edad: Int,
     dni: String,
