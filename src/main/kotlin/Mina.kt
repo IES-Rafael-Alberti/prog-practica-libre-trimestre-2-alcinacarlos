@@ -67,7 +67,7 @@ class Mina(
             transportista.trabajar(this)
             pedido.entregado = true
             pedidosRealizados.add(pedido)
-            val acciones = "Transportista ${transportista.nombre} con DNI ${transportista.dni} entregado a: ${pedido.nombreEmpresa}"
+            val acciones = "Transportista ${transportista.nombre} con DNI ${transportista.dni} entrega pedido a: ${pedido.nombreEmpresa}"
             añadirAHistorialAcciones(acciones)
             return true
         }else{
@@ -100,9 +100,6 @@ class Mina(
                 //eliminar pedido de la cola
                 //colaPedidos.remove(pedido)
 
-                //registra la accion del pedido
-                val acciones = "Pedido entregado a: ${pedido.nombreEmpresa}"
-                añadirAHistorialAcciones(acciones)
                 return true
             } else{
                 val acciones = "No se ha podido entregar el pedido: ${pedido.nombreEmpresa}"

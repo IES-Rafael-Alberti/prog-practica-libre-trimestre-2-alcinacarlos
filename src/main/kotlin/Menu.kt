@@ -61,8 +61,7 @@ object Menu {
 
         })
     }
-    private fun obtenerEstadoActualMina(mina: Mina){
-        terminal.println(brightBlue("Los mineros han picado muy fuertemente hoy, tienes en total ${mina.obtenerInventario().size} minerales"))
+    fun obtenerEstadoActualMina(mina: Mina){
         terminal.println(table {
             borderStyle = green
             style = brightWhite
@@ -91,7 +90,7 @@ object Menu {
                 2 -> GestionarJuego.logicaGestionarPedidoCadaDia(mina)
                 3 -> {
                     terminal.println(brightMagenta("Total de trabajadores: ${mina.obtenerTrabajadores().size}"))
-                    Thread.sleep(1000)
+                    Thread.sleep(2000)
                     mina.obtenerTrabajadores().forEach { it.mostrarTrabajador() }
                 }
                 4 -> {
@@ -99,7 +98,7 @@ object Menu {
                     terminal.println(brightMagenta("Total de minerales en el inventario: ${inventario.size}"))
                     //inventario.forEach { it.mostrar() }
                     tablaMinerales(inventario)
-                    Thread.sleep(1000)
+                    Thread.sleep(2000)
                 }
                 5 -> {
                     val pedidos = mina.obtenerPedidos()

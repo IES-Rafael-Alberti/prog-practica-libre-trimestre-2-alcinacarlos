@@ -24,7 +24,8 @@ object GestionarJuego {
         if (respuesta!!){
             val transportista = generarTrabajadorAleatorio("transportista") as Transportista
             mina.contratarTrabajador(transportista)
-            terminal.println(brightMagenta("Has contratado a: $transportista"))
+            terminal.println(brightMagenta("Has contratado a un transportista!!"))
+            transportista.mostrarTrabajador()
             return transportista
         }else{
             terminal.println(brightBlue("No has contratado a ninguna transportista"))
@@ -81,6 +82,7 @@ object GestionarJuego {
     }
     private fun iniciarDia(mina:Mina){
         mina.avanzarDia()
+        terminal.println(brightBlue("Los mineros han picado muy fuertemente hoy, tienes en total ${mina.obtenerInventario().size} minerales"))
         Menu.buclePrincipal(mina)
     }
     fun contratarTrabajador(mina: Mina){
@@ -90,7 +92,7 @@ object GestionarJuego {
             try {
                 val tipoTrabajador = readln()
                 trabajador = generarTrabajadorAleatorio(tipoTrabajador)
-                terminal.println(brightMagenta("Has contradado a un ${tipoTrabajador}"))
+                terminal.println(brightMagenta("Has contradado a un trabajador!!"))
                 trabajador.mostrarTrabajador()
             }catch (e:IllegalArgumentException){
                 println(e)
