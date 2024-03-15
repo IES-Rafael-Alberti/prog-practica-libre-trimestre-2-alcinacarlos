@@ -24,9 +24,9 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 
 #### **Criterio global 3: Uso de entornos**
 **(2.i)**: ¿Cómo utilizaste el IDE para el desarrollo de tu proyecto? Describe el proceso de creación, compilación, y prueba de tu programa.
-Entorno de desarrollo:
-Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
-Creación del proyecto:
+- Entorno de desarrollo:
+- Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
+- Creación del proyecto:
 * Se creó un nuevo proyecto Kotlin.
 * Se agregaron las dependencias necesarias al proyecto.
 * Se crearon las clases y archivos necesarios para el programa. 
