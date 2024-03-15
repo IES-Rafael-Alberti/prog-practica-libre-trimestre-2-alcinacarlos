@@ -34,6 +34,8 @@ Se utilizó el IDE IntelliJ IDEA para el desarrollo del proyecto.
 * Se crearon las clases y archivos necesarios para el programa. 
 * Se utilizó el botón "Run" del IDE para compilar y ejecutar el programa. 
 * Se utilizó el debugger del IDE para detectar y corregir errores en el código.
+* Libreria JUNIT para pruebas unitarias
+* 
 
 #### **Criterio global 4: Definir clases y su contenido**
 **(4.b, 4.c, 4.d, 4.g)**: Explica sobre un ejemplo de tu código, cómo definiste las clases en tu proyecto, es decir como identificaste las de propiedades, métodos y constructores y modificadores del control de acceso a métodos y propiedades, para representar al objeto del mundo real. ¿Cómo contribuyen estas clases a la solución del problema que tu aplicación aborda?

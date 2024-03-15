@@ -271,10 +271,9 @@ object GestionarJuego {
      */
     fun iniciarMina(mina: Mina) {
         do {
-            iniciarDia(mina)
             añadirPedidosCadaXDias(mina)
+            iniciarDia(mina)
             //logicaGestionarPedidoCadaDia(mina)
-            Thread.sleep(1000)
         } while (mina.consultarActividad())
     }
 }

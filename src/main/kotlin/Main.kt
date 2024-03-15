@@ -13,7 +13,7 @@ fun main() {
     val mina = Mina("Mina Guapisima", 10000.00, trabajadores)
 
     Menu.presentarJuego()
-    //Thread.sleep(5000)
+    Thread.sleep(15000)
     GestionarJuego.primerDia(mina)
     GestionarJuego.iniciarMina(mina)
     if (mina.obtenerDinero() <= 0){
